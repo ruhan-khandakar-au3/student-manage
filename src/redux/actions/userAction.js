@@ -1,10 +1,24 @@
 import {
   CREATE_NEW_LEAD,
   TOGGLE_APPROVED,
-  CHANGE_FILTER_TYPE
+  CHANGE_FILTER_TYPE,
+  CHANGE_LOADING_STATUS
 } from "./actionTypes";
 
+export const toggleApproved = userId => ({
+  type: TOGGLE_APPROVED,
+  payload: userId
+});
+
+export const changeFilterType = type => ({
+  type: CHANGE_FILTER_TYPE,
+  payload: type
+});
+
 export const createNewLead = () => async dispatch => {
+  dispatch({
+    type: CHANGE_LOADING_STATUS
+  });
   const response = await fetch(`https://randomuser.me/api/`);
   let data = await response.json();
   data = data.results[0];
@@ -31,14 +45,7 @@ export const createNewLead = () => async dispatch => {
     type: CREATE_NEW_LEAD,
     payload: user
   });
+  dispatch({
+    type: CHANGE_LOADING_STATUS
+  });
 };
-
-export const toggleApproved = userId => ({
-  type: TOGGLE_APPROVED,
-  payload: userId
-});
-
-export const changeFilterType = type => ({
-  type: CHANGE_FILTER_TYPE,
-  payload: type
-});

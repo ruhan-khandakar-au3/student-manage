@@ -11,7 +11,8 @@ import {
 import {
   userTotalItems,
   userApprovedItemsCount,
-  selectFilterType
+  selectFilterType,
+  selectLoading
 } from "../../utils/userSelector";
 
 const SideBar = ({
@@ -19,7 +20,8 @@ const SideBar = ({
   totalLength,
   approvedCount,
   filterType,
-  changeFilterType
+  changeFilterType,
+  loading
 }) => {
   return (
     <div>
@@ -74,10 +76,11 @@ const SideBar = ({
       </div>
       <div className="card p-1">
         <Button
-          btnText="Get New Lead"
+          btnText={`${loading ? "Loading..." : "Get New Lead"}`}
           clsNames="green darken-4"
           iconTxt="person_add"
           onClick={createNewLead}
+          disabled={loading}
         />
       </div>
     </div>
@@ -87,7 +90,8 @@ const SideBar = ({
 const mapStateToProps = createStructuredSelector({
   totalLength: userTotalItems,
   approvedCount: userApprovedItemsCount,
-  filterType: selectFilterType
+  filterType: selectFilterType,
+  loading: selectLoading
 });
 
 export default connect(mapStateToProps, { createNewLead, changeFilterType })(

@@ -2,11 +2,19 @@ import { createSelector } from "reselect";
 
 const selectUser = state => state.usersData;
 
-export const selectUserItems = createSelector([selectUser], cart => cart.users);
+export const selectUserItems = createSelector(
+  [selectUser],
+  store => store.users
+);
 
 export const selectFilterType = createSelector(
   [selectUser],
-  cart => cart.filterType
+  store => store.filterType
+);
+
+export const selectLoading = createSelector(
+  [selectUser],
+  store => store.loading
 );
 
 export const userTotalItems = createSelector(

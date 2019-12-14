@@ -1,7 +1,8 @@
 import {
   CREATE_NEW_LEAD,
   TOGGLE_APPROVED,
-  CHANGE_FILTER_TYPE
+  CHANGE_FILTER_TYPE,
+  CHANGE_LOADING_STATUS
 } from "../actions/actionTypes";
 
 const INITIAL_STATE = {
@@ -27,7 +28,8 @@ const INITIAL_STATE = {
       isApproved: true
     }
   ],
-  filterType: "All"
+  filterType: "All",
+  loading: false
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -49,6 +51,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         filterType: payload
+      };
+    case CHANGE_LOADING_STATUS:
+      console.log("Yes I m changing");
+      return {
+        ...state,
+        loading: !state.loading
       };
     default:
       return state;
