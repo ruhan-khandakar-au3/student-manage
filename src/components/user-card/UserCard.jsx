@@ -8,7 +8,7 @@ const UserCard = ({
   toggleApproved
 }) => {
   return (
-    <div className="card">
+    <div className="card hoverable">
       <div className="card-image">
         <img src={imageUrl} alt={name} />
 

@@ -5,6 +5,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import Home from "./pages/Home";
 import Header from "./components/header/Header";
 import SideBar from "./components/sidebar/SideBar";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
