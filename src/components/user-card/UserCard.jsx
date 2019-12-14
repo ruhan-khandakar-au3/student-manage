@@ -39,7 +39,8 @@ const UserCard = ({
             <span className="strong"> Email </span> &#8658; {email}
           </li>
           <li className="collection-item">
-            <span className="strong"> Gender </span> &#8658; {gender}
+            <span className="strong"> Gender </span> &#8658;{" "}
+            {gender[0].toUpperCase() + gender.slice(1)}
           </li>
           <li className="collection-item">
             <span className="strong"> Phone </span> &#8658; {phone}

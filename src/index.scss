@@ -47,17 +47,41 @@
   align-items: center;
 }
 
+.right-content {
+  .col {
+    display: flex;
+    justify-content: center;
+    .card {
+      width: 270px;
+    }
+  }
+}
+
 .card {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 2px 9px 0 rgba(0, 0, 0, 0.2);
 
   .card-content {
-    padding: 24px 17px;
+    padding: 24px 13px;
+    padding-bottom: 1px;
   }
 
   .card-title {
     .name {
       font-size: 1.2rem;
     }
+  }
+
+  .card-image {
+    img {
+      height: 230px;
+    }
+  }
+}
+
+.collection {
+  .collection-item {
+    font-size: 1rem;
+    padding: 10px;
   }
 }

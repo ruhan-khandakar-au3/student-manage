@@ -1,11 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import Button from "../buttons/Button";
 
 import { createNewLead } from "../../redux/actions/userAction";
+import { userTotalItems, userApprovedItems } from "../../utils/userSelector";
 
-const SideBar = ({ createNewLead }) => {
+const SideBar = ({ createNewLead, totalLength, approvedCount }) => {
   return (
     <div>
       <div className="card p-1">
@@ -19,10 +21,13 @@ const SideBar = ({ createNewLead }) => {
           <tbody>
             <tr>
               <td>
-                <span className="new badge" data-badge-caption="5" />
+                <span
+                  className="new badge"
+                  data-badge-caption={approvedCount}
+                />
               </td>
               <td>
-                <span className="new badge" data-badge-caption="54" />
+                <span className="new badge" data-badge-caption={totalLength} />
               </td>
             </tr>
           </tbody>
@@ -57,4 +62,9 @@ const SideBar = ({ createNewLead }) => {
   );
 };
 
-export default connect(null, { createNewLead })(SideBar);
+const mapStateToProps = createStructuredSelector({
+  totalLength: userTotalItems,
+  approvedCount: userApprovedItems
+});
+
+export default connect(mapStateToProps, { createNewLead })(SideBar);
