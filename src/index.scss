@@ -123,9 +123,7 @@
 .db-none {
   display: block;
 }
-.slide-in {
-  animation: slideIn 2s ease-in-out;
-}
+
 @media (min-width: 600px) and (max-width: 750px) {
   .right-content {
     .col {
@@ -150,13 +148,40 @@
   }
 }
 
-@keyframes slideIn {
-  0% {
-    display: none;
+.slide-enter {
+  transform: translateX(-100%);
+}
+.slide-enter-active {
+  animation: slide-in 400ms ease-in-out forwards;
+}
+.slide-exit {
+  transform: translateX(0%);
+}
+.slide-exit-active {
+  animation: slide-out 400ms ease-in-out forwards;
+}
+
+.slide-exit-done {
+  display: none;
+}
+
+@keyframes slide-in {
+  from {
     transform: translateX(-100%);
+    opacity: 0;
   }
-  100% {
-    display: block;
+  to {
     transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
