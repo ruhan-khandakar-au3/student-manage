@@ -17,24 +17,6 @@ export const selectLoading = createSelector(
   store => store.loading
 );
 
-export const userMaleItems = createSelector([selectUserItems], users =>
-  users.filter(user => user.gender === "male")
-);
-
-export const userFemaleItems = createSelector([selectUserItems], users =>
-  users.filter(user => user.gender === "female")
-);
-
-export const userMaleItemsCount = createSelector(
-  [userMaleItems],
-  users => users.length
-);
-
-export const userFemaleItemsCount = createSelector(
-  [userFemaleItems],
-  users => users.length
-);
-
 export const usersFilterdItems = createSelector(
   [selectUserItems, selectFilterType],
   (users, type) =>
