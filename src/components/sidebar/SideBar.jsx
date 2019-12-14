@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 import Button from "../buttons/Button";
 import LeadStatus from "../lead-status/LeadStatus";
@@ -12,6 +13,17 @@ import {
 import { selectFilterType, selectLoading } from "../../utils/userSelector";
 
 const SideBar = ({ createNewLead, filterType, changeFilterType, loading }) => {
+  const handleLead = () => {
+    createNewLead();
+    setTimeout(() => {
+      M.toast({
+        html: "New Lead added",
+        classes: "rounded teal lighten-2",
+        displayLength: 1500
+      });
+    }, 800);
+  };
+
   return (
     <div>
       <LeadStatus />
@@ -46,7 +58,7 @@ const SideBar = ({ createNewLead, filterType, changeFilterType, loading }) => {
           btnText={`${loading ? "Loading..." : "Get New Lead"}`}
           clsNames="green darken-4"
           iconTxt="person_add"
-          onClick={createNewLead}
+          onClick={handleLead}
           disabled={loading}
         />
       </div>
