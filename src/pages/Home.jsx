@@ -1,19 +1,11 @@
 import React from "react";
 
-import UserCard from "../components/user-card/UserCard";
+import Users from "../components/users/Users";
 
 const Home = () => {
   return (
     <div className="row">
-      <div className="col s6">
-        <UserCard />
-      </div>
-      <div className="col s6">
-        <UserCard />
-      </div>
-      <div className="col s6">
-        <UserCard />
-      </div>
+      <Users />
     </div>
   );
 };

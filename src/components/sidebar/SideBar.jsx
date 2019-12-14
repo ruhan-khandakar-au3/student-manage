@@ -1,8 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import Button from "../buttons/Button";
 
-const SideBar = () => {
+import { createNewLead } from "../../redux/actions/userAction";
+
+const SideBar = ({ createNewLead }) => {
   return (
     <div>
       <div className="card p-1">
@@ -47,10 +50,11 @@ const SideBar = () => {
           btnText="Get New Lead"
           clsNames="green darken-4"
           iconTxt="person_add"
+          onClick={createNewLead}
         />
       </div>
     </div>
   );
 };
 
-export default SideBar;
+export default connect(null, { createNewLead })(SideBar);

@@ -1,7 +1,9 @@
 .text-center {
   text-align: center;
 }
-
+.px-1 {
+  padding: 0 1rem;
+}
 .m-0 {
   margin: 0;
 }
@@ -26,6 +28,10 @@
   background-color: #263238 !important;
 }
 
+.strong {
+  font-weight: bold;
+}
+
 .d-flex-between {
   display: flex;
   justify-content: space-between;
@@ -47,5 +53,11 @@
 
   .card-content {
     padding: 24px 17px;
+  }
+
+  .card-title {
+    .name {
+      font-size: 1.2rem;
+    }
   }
 }

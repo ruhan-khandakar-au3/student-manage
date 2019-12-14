@@ -16,13 +16,13 @@ const App = () => {
     <div className="main">
       <div className="container-fluid">
         <Header />
-        <div className="container mt-1">
+        <div className="container-fluid mt-1 px-1">
           <div className="row">
-            <div className="col s4">
+            <div className="col s3">
               <SideBar />
             </div>
-            <div className="col s8">
-              <div className="right-content">
+            <div className="col s9">
+              <div className="right-content ">
                 <Home />
               </div>
             </div>
