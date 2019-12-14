@@ -1,4 +1,4 @@
-import { CREATE_NEW_LEAD } from "./actionTypes";
+import { CREATE_NEW_LEAD, TOGGLE_APPROVED } from "./actionTypes";
 
 export const createNewLead = () => async dispatch => {
   const response = await fetch(`https://randomuser.me/api/`);
@@ -28,3 +28,8 @@ export const createNewLead = () => async dispatch => {
     payload: user
   });
 };
+
+export const toggleApproved = userId => ({
+  type: TOGGLE_APPROVED,
+  payload: userId
+});

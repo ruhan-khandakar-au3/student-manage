@@ -1,7 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { toggleApproved } from "../../redux/actions/userAction";
 
 const UserCard = ({
-  user: { name, email, gender, phone, imageUrl, age, isApproved }
+  user: { name, email, gender, phone, imageUrl, age, isApproved, id },
+  toggleApproved
 }) => {
   return (
     <div className="card">
@@ -16,6 +20,7 @@ const UserCard = ({
           data-tooltip={`${
             isApproved ? "Click here to remove" : "Click Here to Approve"
           }`}
+          onClick={() => toggleApproved(id)}
         >
           <i className="material-icons">{isApproved ? "clear" : "check"}</i>
         </span>
@@ -48,4 +53,4 @@ const UserCard = ({
   );
 };
 
-export default UserCard;
+export default connect(null, { toggleApproved })(UserCard);

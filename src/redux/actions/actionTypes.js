@@ -1,1 +1,2 @@
 export const CREATE_NEW_LEAD = "CREATE_NEW_LEAD";
+export const TOGGLE_APPROVED = "TOGGLE_APPROVED";
