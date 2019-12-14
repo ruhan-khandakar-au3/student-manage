@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import UserCard from "../user-card/UserCard";
+import { selectUserItems } from "../../utils/userSelector";
 
 const Users = ({ users }) => (
   <Fragment>
@@ -13,8 +15,8 @@ const Users = ({ users }) => (
   </Fragment>
 );
 
-const mapStateToProps = state => ({
-  users: state.usersData.users
+const mapStateToProps = createStructuredSelector({
+  users: selectUserItems
 });
 
 export default connect(mapStateToProps)(Users);
