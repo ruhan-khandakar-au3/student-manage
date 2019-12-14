@@ -1,6 +1,9 @@
 .text-center {
   text-align: center;
 }
+.c-pointer {
+  cursor: pointer;
+}
 .px-1 {
   padding: 0 1rem;
 }
@@ -32,6 +35,15 @@
   font-weight: bold;
 }
 
+.d-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-g-1 {
+  flex-grow: 1;
+}
+
 .d-flex-between {
   display: flex;
   justify-content: space-between;
@@ -52,7 +64,7 @@
     display: flex;
     justify-content: center;
     .card {
-      width: 270px;
+      width: 272px;
     }
   }
 }
@@ -88,4 +100,63 @@
 
 .page-footer {
   padding-top: 0;
+}
+
+@media (max-width: 600px) {
+  .right-content {
+    .col {
+      display: flex;
+      justify-content: center;
+      .card {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.d-block {
+  display: none;
+}
+.dl-none {
+  display: block;
+}
+.db-none {
+  display: block;
+}
+.slide-in {
+  animation: slideIn 2s ease-in-out;
+}
+@media (min-width: 600px) and (max-width: 750px) {
+  .right-content {
+    .col {
+      display: flex;
+      justify-content: center;
+      .card {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .dl-none {
+    display: none;
+  }
+  .d-block {
+    display: block;
+  }
+  .db-none {
+    display: none;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    display: none;
+    transform: translateX(-100%);
+  }
+  100% {
+    display: block;
+    transform: translateX(0%);
+  }
 }

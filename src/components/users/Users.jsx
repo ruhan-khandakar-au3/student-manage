@@ -9,7 +9,7 @@ const Users = ({ users }) => {
   return (
     <Fragment>
       {users.map(user => (
-        <div key={user.id} className="col s4">
+        <div key={user.id} className="col s12 m6 l4">
           <UserCard user={user} />
         </div>
       ))}
