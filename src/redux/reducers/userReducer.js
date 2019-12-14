@@ -1,4 +1,8 @@
-import { CREATE_NEW_LEAD, TOGGLE_APPROVED } from "../actions/actionTypes";
+import {
+  CREATE_NEW_LEAD,
+  TOGGLE_APPROVED,
+  CHANGE_FILTER_TYPE
+} from "../actions/actionTypes";
 
 const INITIAL_STATE = {
   users: [
@@ -22,7 +26,8 @@ const INITIAL_STATE = {
       imageUrl: "https://randomuser.me/api/portraits/women/37.jpg",
       isApproved: true
     }
-  ]
+  ],
+  filterType: "All"
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -39,6 +44,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         users: state.users.map(user =>
           user.id === payload ? { ...user, isApproved: !user.isApproved } : user
         )
+      };
+    case CHANGE_FILTER_TYPE:
+      return {
+        ...state,
+        filterType: payload
       };
     default:
       return state;

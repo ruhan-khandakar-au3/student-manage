@@ -4,10 +4,23 @@ import { createStructuredSelector } from "reselect";
 
 import Button from "../buttons/Button";
 
-import { createNewLead } from "../../redux/actions/userAction";
-import { userTotalItems, userApprovedItems } from "../../utils/userSelector";
+import {
+  createNewLead,
+  changeFilterType
+} from "../../redux/actions/userAction";
+import {
+  userTotalItems,
+  userApprovedItemsCount,
+  selectFilterType
+} from "../../utils/userSelector";
 
-const SideBar = ({ createNewLead, totalLength, approvedCount }) => {
+const SideBar = ({
+  createNewLead,
+  totalLength,
+  approvedCount,
+  filterType,
+  changeFilterType
+}) => {
   return (
     <div>
       <div className="card p-1">
@@ -36,18 +49,27 @@ const SideBar = ({ createNewLead, totalLength, approvedCount }) => {
       <div className="filter card p-1">
         <Button
           btnText="Show All"
-          clsNames="blue-grey darken-1 active m-1"
+          clsNames={`blue-grey darken-1 m-1 ${
+            filterType === "All" ? "active" : ""
+          }`}
           iconTxt="ac_unit"
+          onClick={() => changeFilterType("All")}
         />
         <Button
           btnText="Show Males"
-          clsNames="blue-grey darken-1 m-1"
+          clsNames={`blue-grey darken-1 m-1 ${
+            filterType === "males" ? "active" : ""
+          }`}
           iconTxt="person"
+          onClick={() => changeFilterType("males")}
         />
         <Button
           btnText="Show Females"
-          clsNames="blue-grey darken-1 m-1"
+          clsNames={`blue-grey darken-1 m-1 ${
+            filterType === "females" ? "active" : ""
+          }`}
           iconTxt="face"
+          onClick={() => changeFilterType("females")}
         />
       </div>
       <div className="card p-1">
@@ -64,7 +86,10 @@ const SideBar = ({ createNewLead, totalLength, approvedCount }) => {
 
 const mapStateToProps = createStructuredSelector({
   totalLength: userTotalItems,
-  approvedCount: userApprovedItems
+  approvedCount: userApprovedItemsCount,
+  filterType: selectFilterType
 });
 
-export default connect(mapStateToProps, { createNewLead })(SideBar);
+export default connect(mapStateToProps, { createNewLead, changeFilterType })(
+  SideBar
+);
