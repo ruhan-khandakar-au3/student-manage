@@ -132,7 +132,7 @@
   display: block;
 }
 .db-none {
-  display: block;
+  display: none;
 }
 
 @media (min-width: 600px) and (max-width: 750px) {
@@ -167,19 +167,39 @@
 
 .slide-enter {
   transform: translateX(-100%);
+  &.db-none {
+    display: block;
+  }
 }
 .slide-enter-active {
   animation: slide-in 400ms ease-in-out forwards;
+  &.db-none {
+    display: block;
+  }
+}
+.slide-enter-done {
+  display: block;
+  &.db-none {
+    display: block;
+  }
 }
 .slide-exit {
   transform: translateX(0%);
+  &.db-none {
+    display: block;
+  }
 }
 .slide-exit-active {
   animation: slide-out 400ms ease-in-out forwards;
+  &.db-none {
+    display: block;
+  }
 }
 
 .slide-exit-done {
-  display: none;
+  &.db-none {
+    display: none;
+  }
 }
 
 @keyframes slide-in {

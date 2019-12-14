@@ -16,6 +16,7 @@ const App = () => {
     M.AutoInit();
   }, []);
 
+  console.log(hidden);
   return (
     <div className="main">
       <div className="container-fluid">
@@ -25,16 +26,18 @@ const App = () => {
             <div className="col s12 m8 offset-m2 l3 d-block">
               <SideBar />
             </div>
-            <div className={`col s12 m8 offset-m2 l3 db-none `}>
-              <CSSTransition
-                timeout={400}
-                classNames="slide"
-                in={!hidden}
-                appear={!hidden}
-              >
+
+            <CSSTransition
+              timeout={400}
+              classNames="slide"
+              in={!hidden}
+              appear={!hidden}
+            >
+              <div className={`col s12 m8 offset-m2 l3 db-none`}>
                 <SideBar />
-              </CSSTransition>
-            </div>
+              </div>
+            </CSSTransition>
+
             <div className="col s12 m8 offset-m2 l9">
               <div className="right-content ">
                 <Home />
