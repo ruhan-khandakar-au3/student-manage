@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import PropTypes from "prop-types";
 
 import {
   usersTotalItemsCount,
@@ -35,5 +36,10 @@ const mapStateToProps = createStructuredSelector({
   totalLength: usersTotalItemsCount,
   approvedCount: usersApprovedCount
 });
+
+LeadStatus.propTypes = {
+  totalLength: PropTypes.number.isRequired,
+  approvedCount: PropTypes.number.isRequired
+};
 
 export default connect(mapStateToProps)(LeadStatus);

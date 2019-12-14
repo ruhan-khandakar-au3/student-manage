@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import { toggleSidebar } from "../../redux/actions/toggleAction";
 
@@ -17,6 +18,10 @@ const Header = ({ toggleSidebar }) => {
       </div>
     </nav>
   );
+};
+
+Header.propTypes = {
+  toggleSidebar: PropTypes.func.isRequired
 };
 
 export default connect(null, { toggleSidebar })(Header);

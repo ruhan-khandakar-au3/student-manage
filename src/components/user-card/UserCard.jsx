@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import { toggleApproved } from "../../redux/actions/userAction";
 
@@ -52,6 +53,11 @@ const UserCard = ({
       </div>
     </div>
   );
+};
+
+UserCard.propTypes = {
+  toggleApproved: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 export default connect(null, { toggleApproved })(UserCard);

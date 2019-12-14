@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Button = ({ btnText, clsNames, iconTxt, ...restProps }) => (
   <div>
@@ -11,4 +12,9 @@ const Button = ({ btnText, clsNames, iconTxt, ...restProps }) => (
     </button>
   </div>
 );
+Button.propTypes = {
+  btnText: PropTypes.string.isRequired,
+  clsNames: PropTypes.string.isRequired,
+  iconTxt: PropTypes.string.isRequired
+};
 export default Button;

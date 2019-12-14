@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import M from "materialize-css/dist/js/materialize.min.js";
+import PropTypes from "prop-types";
 
 import Button from "../buttons/Button";
 import LeadStatus from "../lead-status/LeadStatus";
@@ -70,6 +71,13 @@ const mapStateToProps = createStructuredSelector({
   filterType: selectFilterType,
   loading: selectLoading
 });
+
+SideBar.propTypes = {
+  createNewLead: PropTypes.func.isRequired,
+  filterType: PropTypes.string.isRequired,
+  changeFilterType: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, { createNewLead, changeFilterType })(
   SideBar
