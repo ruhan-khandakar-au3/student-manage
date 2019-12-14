@@ -22,7 +22,9 @@ const App = () => {
               <SideBar />
             </div>
             <div className="col s8">
-              <Home />
+              <div className="right-content">
+                <Home />
+              </div>
             </div>
           </div>
         </div>

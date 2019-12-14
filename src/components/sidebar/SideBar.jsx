@@ -5,6 +5,26 @@ import Button from "../buttons/Button";
 const SideBar = () => {
   return (
     <div>
+      <div className="card p-1">
+        <table>
+          <thead>
+            <tr>
+              <th>Converted Leads</th>
+              <th>Total Leads</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span className="new badge" data-badge-caption="5" />
+              </td>
+              <td>
+                <span className="new badge" data-badge-caption="54" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div className="filter card p-1">
         <Button
           btnText="Show All"
