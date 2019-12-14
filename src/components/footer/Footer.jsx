@@ -4,7 +4,7 @@ const Footer = () => (
   <footer className="page-footer teal lighten-1">
     <div className="footer-copyright">
       <div className="container">
-        © 2020 Copyright
+        © 2020
         <a
           className="right light-blue-text text-darken-4 strong"
           href="https://www.attainu.com/"
