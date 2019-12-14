@@ -6,17 +6,15 @@ import PropTypes from "prop-types";
 import UserCard from "../user-card/UserCard";
 import { usersFilterdItems } from "../../utils/userSelector";
 
-const Users = ({ users }) => {
-  return (
-    <Fragment>
-      {users.map(user => (
-        <div key={user.id} className="col s12 m6 l4">
-          <UserCard user={user} />
-        </div>
-      ))}
-    </Fragment>
-  );
-};
+const Users = ({ users }) => (
+  <Fragment>
+    {users.map(user => (
+      <div key={user.id} className="col s12 m6 l4">
+        <UserCard user={user} />
+      </div>
+    ))}
+  </Fragment>
+);
 
 const mapStateToProps = createStructuredSelector({
   users: usersFilterdItems
