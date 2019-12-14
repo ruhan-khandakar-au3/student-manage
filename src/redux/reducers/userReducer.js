@@ -18,13 +18,13 @@ const INITIAL_STATE = {
       isApproved: false
     },
     {
-      id: "23f6e87e-9d2d-483a-8d22-1253631f9b43",
-      name: "Begüm Bakırcıoğlu",
-      email: "begum.bakircioglu@example.com",
+      id: "fd4735df-74fc-4afb-95f5-679d7a656cc6",
+      name: "Zoraide Ribeiro",
+      email: "zoraide.ribeiro@example.com",
       gender: "female",
-      age: 57,
-      phone: "(209)-572-1396",
-      imageUrl: "https://randomuser.me/api/portraits/women/37.jpg",
+      age: 43,
+      phone: "(64) 3477-4515",
+      imageUrl: "https://randomuser.me/api/portraits/women/46.jpg",
       isApproved: true
     }
   ],
@@ -53,7 +53,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
         filterType: payload
       };
     case CHANGE_LOADING_STATUS:
-      console.log("Yes I m changing");
       return {
         ...state,
         loading: !state.loading

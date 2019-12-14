@@ -3,51 +3,18 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import Button from "../buttons/Button";
+import LeadStatus from "../lead-status/LeadStatus";
 
 import {
   createNewLead,
   changeFilterType
 } from "../../redux/actions/userAction";
-import {
-  userTotalItems,
-  userApprovedItemsCount,
-  selectFilterType,
-  selectLoading
-} from "../../utils/userSelector";
+import { selectFilterType, selectLoading } from "../../utils/userSelector";
 
-const SideBar = ({
-  createNewLead,
-  totalLength,
-  approvedCount,
-  filterType,
-  changeFilterType,
-  loading
-}) => {
+const SideBar = ({ createNewLead, filterType, changeFilterType, loading }) => {
   return (
     <div>
-      <div className="card p-1">
-        <table>
-          <thead>
-            <tr>
-              <th>Converted Leads</th>
-              <th>Total Leads</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <span
-                  className="new badge"
-                  data-badge-caption={approvedCount}
-                />
-              </td>
-              <td>
-                <span className="new badge" data-badge-caption={totalLength} />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <LeadStatus />
       <div className="filter card p-1">
         <Button
           btnText="Show All"
@@ -88,8 +55,6 @@ const SideBar = ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  totalLength: userTotalItems,
-  approvedCount: userApprovedItemsCount,
   filterType: selectFilterType,
   loading: selectLoading
 });

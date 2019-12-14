@@ -17,20 +17,40 @@ export const selectLoading = createSelector(
   store => store.loading
 );
 
-export const userTotalItems = createSelector(
-  [selectUserItems],
-  users => users.length
-);
-
-export const userApprovedItemsCount = createSelector(
-  [selectUserItems],
-  users => users.filter(user => user.isApproved).length
-);
-
 export const userMaleItems = createSelector([selectUserItems], users =>
   users.filter(user => user.gender === "male")
 );
 
 export const userFemaleItems = createSelector([selectUserItems], users =>
   users.filter(user => user.gender === "female")
+);
+
+export const userMaleItemsCount = createSelector(
+  [userMaleItems],
+  users => users.length
+);
+
+export const userFemaleItemsCount = createSelector(
+  [userFemaleItems],
+  users => users.length
+);
+
+export const usersFilterdItems = createSelector(
+  [selectUserItems, selectFilterType],
+  (users, type) =>
+    users.filter(user => {
+      if (type === "males") return user.gender === "male";
+      else if (type === "females") return user.gender === "female";
+      return users;
+    })
+);
+
+export const usersTotalItemsCount = createSelector(
+  [usersFilterdItems],
+  users => users.length
+);
+
+export const usersApprovedCount = createSelector(
+  [usersFilterdItems],
+  users => users.filter(user => user.isApproved).length
 );
