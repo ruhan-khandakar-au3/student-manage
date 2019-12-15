@@ -6,4 +6,9 @@
 
 ---
 
+Live Demo Link
+[student-management-app](https://attainu-student-management.netlify.com/)
+
+---
+
 ### I've used [udaicty's git style guide](https://udacity.github.io/git-styleguide/) for writing better git commit messages.
