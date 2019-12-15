@@ -16,7 +16,6 @@ const App = () => {
     M.AutoInit();
   }, []);
 
-  console.log(hidden);
   return (
     <div className="main">
       <div className="container-fluid">
